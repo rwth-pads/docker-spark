@@ -1,0 +1,6 @@
+./sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.5.0
+
+docker exec -it big-data-container ./sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.5.0 
+docker exec -it big-data-container nc -lk 9999
+
+./sbin/stop-connect-server.sh
