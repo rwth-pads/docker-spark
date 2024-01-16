@@ -22,13 +22,15 @@ services:
       - '15002:15002'
     volumes:
       - ./mounted-data:/data
+#    command:
+#      - ./sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.5.0
   spark-worker:
     build: .
     image: custom-spark
     container_name: spark-worker
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark-master://spark:7077
+      - SPARK_MASTER_URL=spark-master:7077
       - SPARK_WORKER_MEMORY=1G
       - SPARK_WORKER_CORES=4
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
