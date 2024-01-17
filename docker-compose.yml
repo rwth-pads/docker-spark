@@ -20,10 +20,9 @@ services:
       - '7075:8080'
       - '7077:7077'
       - '15002:15002'
+      - '18888:18888'
     volumes:
       - ./mounted-data:/data
-#    command:
-#      - ./sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.5.0
   spark-worker:
     build: .
     image: custom-spark

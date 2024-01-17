@@ -2,6 +2,7 @@
 # stop listening for connections: ./sbin/stop-connect-server.sh
 
 docker exec spark-master ./sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.5.0 
+docker exec spark-master ./sbin/stop-connect-server.sh
 
 # for the first example
 docker exec -it spark-master nc -lk 9999
