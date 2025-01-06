@@ -1,0 +1,5 @@
+mounted-data/*
+!mounted-data/map-reduce/*
+!mounted-data/kmeans.ipynb
+!mounted-data/spark_streaming.ipynb
+!mounted-data/internet_archive_scifi_v3.txt.gz
