@@ -1,12 +1,12 @@
-# Copyright VMware, Inc.
-# SPDX-License-Identifier: APACHE-2.0
-
-#version: '2'
+x-base-img: &base-img
+    # switch comments to build locally
+    # build: ./spark-base-img
+    # image: spark-base-img
+    image: leahtgu/spark-base-img:latest
 
 services:
   spark-master:
-    build: .
-    image: custom-spark
+    <<: *base-img
     container_name: spark-master
     user: root
     environment:
@@ -17,15 +17,15 @@ services:
       - SPARK_SSL_ENABLED=no
       - SPARK_USER=spark
     ports:
-      - '7075:8080'
+      - '7075:7075'
       - '7077:7077'
       - '15002:15002'
       - '18888:18888'
+      - '4040:4040'
     volumes:
-      - ./mounted-data:/data
+      - ./mounted-data:/mounted-data
   spark-worker:
-    build: .
-    image: custom-spark
+    <<: *base-img
     container_name: spark-worker
     environment:
       - SPARK_MODE=worker
