@@ -1,4 +1,10 @@
-set shell := ["pwsh", "-c"]
+set windows-shell := ["pwsh", "-c"]
+
+image:
+    docker build . -t leahtgu/spark-base-img:latest
+
+up:
+    docker compose up
 
 start-spark-connect:
     docker exec spark-master ./sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.5.3
